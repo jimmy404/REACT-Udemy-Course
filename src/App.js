@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 
 
@@ -17,14 +17,19 @@ class Hello extends Component {
 
 class Text extends Component {
   render () {
-        const {isActivated,arrayOfNumbers, multiply, objectWithInfo} = this.props
-        const textoSegunBool = isActivated ? 'on' : 'off';
+        const {
+          arrayOfNumbers,
+          multiply,
+          objectWithInfo,
+          title
+        } = this.props
+
         const mappedNumbers = arrayOfNumbers.map(n => n*2)
 
       return (
         <div>
-            <p>{arrayOfNumbers}</p>
-            <p>{mappedNumbers.join(' , ')}</p>
+        {title}
+            <p>{mappedNumbers.join(' ,')}</p>
             <p>{objectWithInfo.key}</p>
         </div>
     )
@@ -42,10 +47,11 @@ class App extends Component{
         <Text
           arrayOfNumbers={[2,3,10]}
           objectWithInfo={{key: 'value', key2: 'otherValue'}}
-          number={2}
           multiply={(number) => number *4}
+          number={2}
           text='Texto en string'
-          isActivated/>
+          title={<h1>Este es el titulo</h1>}
+          />
       </div>
     );
   }
