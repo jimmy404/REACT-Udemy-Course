@@ -1,9 +1,9 @@
 import React, {Component } from 'react';
 
 class Contador extends Component {
-  constructor() {
-    super()
-    this.state = { contador: 1}
+  constructor(props) {
+    super(props)
+    this.state = { contador: this.props.contadorInicial }
     setInterval(() => {
       this.setState({contador: this.state.contador + 1})
     }, 1000);
@@ -17,6 +17,9 @@ class Contador extends Component {
   }
 }
 
+Contador.defaultProps = {
+  contadorInicial: 0
+}
 
   class ContadorNumero extends Component {
     render() {
@@ -30,7 +33,7 @@ class App extends Component {
     return(
       <div>
         <p>Primer Componente con state</p>
-        <Contador />
+        <Contador contadorInicial={100}/>
       </div>
     )
   }
