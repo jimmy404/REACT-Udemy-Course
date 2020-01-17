@@ -7,7 +7,13 @@ import './App.css';
 //  return <h2>{props.title}</h2>
 //}
 
-const Hello = (props) => <h2>{props.title}</h2>
+// const Hello = (props) => <h2>{props.title}</h2>
+
+class Hello extends Component {
+  render() {
+    return <h2>{this.props.title}</h2>
+  }
+}
 
 class App extends Component{
   render(){
