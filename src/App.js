@@ -15,6 +15,20 @@ class Hello extends Component {
   }
 }
 
+class Text extends Component {
+  render () {
+        const textoSegunBool = this.props.boolean ? 'cierto' : 'falso';
+
+      return (
+        <div>
+            <p>{this.props.text}</p>
+            <p>{this.props.number}</p>
+            <p>{textoSegunBool}</p>
+        </div>
+    )
+  }
+}
+
 class App extends Component{
   render(){
     return (
@@ -23,9 +37,7 @@ class App extends Component{
           <img src="" alt=""/>
           <Hello title='Hello from props'/>
         </div>
-        <h3>Aprendiendo React</h3>
-        <p>Hola mundo</p>
-        <strong>Esto es un strong</strong>
+        <Text number={2} text='Texto en string' boolean/>
       </div>
     );
   }
