@@ -13,9 +13,17 @@ class Contador extends Component {
 
 
   render() {
-    return <span>{this.state.contador}</span>
+    return <ContadorNumero numero={this.state.contador} />
   }
 }
+
+
+  class ContadorNumero extends Component {
+    render() {
+      console.log('ContadorNumero render()');
+      return <span>{this.props.numero}</span>
+    }
+  }
 
 class App extends Component {
   render(){
