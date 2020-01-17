@@ -17,13 +17,13 @@ class Hello extends Component {
 
 class Text extends Component {
   render () {
-        const textoSegunBool = this.props.boolean ? 'cierto' : 'falso';
+        const textoSegunBool = this.props.isActivated ? 'on' : 'off';
 
       return (
         <div>
             <p>{this.props.text}</p>
             <p>{this.props.number}</p>
-            <p>{textoSegunBool}</p>
+            <p>{this.props.arrayOfNumbers}</p>
         </div>
     )
   }
@@ -37,7 +37,11 @@ class App extends Component{
           <img src="" alt=""/>
           <Hello title='Hello from props'/>
         </div>
-        <Text number={2} text='Texto en string' boolean/>
+        <Text
+          arrayOfNumbers={[2,3,10]}
+          number={2}
+          text='Texto en string'
+          isActivated/>
       </div>
     );
   }
