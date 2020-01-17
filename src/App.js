@@ -26,6 +26,7 @@ class Text extends Component {
             <p>{this.props.number}</p>
             <p>{this.props.arrayOfNumbers}</p>
             <p>{mappedNumbers.join(' , ')}</p>
+            <p>{this.props.objectWithInfo.key}</p>
         </div>
     )
   }
@@ -41,6 +42,7 @@ class App extends Component{
         </div>
         <Text
           arrayOfNumbers={[2,3,10]}
+          objectWithInfo={{key: 'value', key2: 'otherValue'}}
           number={2}
           text='Texto en string'
           isActivated/>
