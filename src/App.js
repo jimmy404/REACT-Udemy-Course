@@ -3,9 +3,11 @@ import logo from './logo.svg';
 import './App.css';
 
 
-function Hello (props){
-  return <h2>{props.title}</h2>
-}
+//function Hello (props){
+//  return <h2>{props.title}</h2>
+//}
+
+const Hello = (props) => <h2>{props.title}</h2>
 
 class App extends Component{
   render(){
