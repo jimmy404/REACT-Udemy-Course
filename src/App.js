@@ -17,16 +17,15 @@ class Hello extends Component {
 
 class Text extends Component {
   render () {
-        const textoSegunBool = this.props.isActivated ? 'on' : 'off';
-        const mappedNumbers = this.props.arrayOfNumbers.map(n => n*2)
+        const {isActivated,arrayOfNumbers, multiply, objectWithInfo} = this.props
+        const textoSegunBool = isActivated ? 'on' : 'off';
+        const mappedNumbers = arrayOfNumbers.map(n => n*2)
 
       return (
         <div>
-            <p>{this.props.text}</p>
-            <p>{this.props.number}</p>
-            <p>{this.props.arrayOfNumbers}</p>
+            <p>{arrayOfNumbers}</p>
             <p>{mappedNumbers.join(' , ')}</p>
-            <p>{this.props.objectWithInfo.key}</p>
+            <p>{objectWithInfo.key}</p>
         </div>
     )
   }
@@ -44,6 +43,7 @@ class App extends Component{
           arrayOfNumbers={[2,3,10]}
           objectWithInfo={{key: 'value', key2: 'otherValue'}}
           number={2}
+          multiply={(number) => number *4}
           text='Texto en string'
           isActivated/>
       </div>
