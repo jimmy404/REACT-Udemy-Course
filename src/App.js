@@ -18,12 +18,14 @@ class Hello extends Component {
 class Text extends Component {
   render () {
         const textoSegunBool = this.props.isActivated ? 'on' : 'off';
+        const mappedNumbers = this.props.arrayOfNumbers.map(n => n*2)
 
       return (
         <div>
             <p>{this.props.text}</p>
             <p>{this.props.number}</p>
             <p>{this.props.arrayOfNumbers}</p>
+            <p>{mappedNumbers.join(' , ')}</p>
         </div>
     )
   }
