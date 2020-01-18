@@ -1,51 +1,37 @@
 import React, { Component } from 'react';
 
-class Button extends Component {
-  render () {
-    return (
-      <button style={{ borderColor: this.props.borderColor, display: 'block' }}>
-        {this.props.label}
-      </button>
-    )
+class Constructor extends Component {
+  /* constructor por defecto
+  constructor (...args) {
+    super(...args)
   }
-}
+  */
 
-Button.defaultProps = {
-  borderColor: '#09f'
-}
-
-class ButtonDanger extends Component {
-  render () {
-    return <Button borderColor='red' label={this.props.label} />
+  constructor (props) {
+    console.log('constructor')
+    super(props) // este método llama al constructor de Component
+    // inicializamos el state de nuestro componente
+    this.state = { mensajeInicial: 'mensaje inicial' }
+    // bindeamos el contexto al método
+    // this.handleClick = this.handleClick.bind(this)
   }
-}
 
-class ButtonWithLegend extends Component {
-  render () {
-    return (
-      <div>
-        <Button label={this.props.label} borderColor={this.props.borderColor} />
-        <small>{this.props.legend}</small>
-      </div>
-    )
+  handleClick = () => {
+    this.setState({ mensajeInicial: 'mensaje cambiado' })
   }
-}
 
-class ComponentsWithComposition extends Component {
   render () {
+    console.log('render')
     return (
-      <div>
-        <h4>Composición vs. herencia (ejemplo de composición)</h4>
-        <Button label='Click aqui con composición' />
-        <br />
-        <ButtonDanger label='Cuidado con composición!!' />
-        <br />
-        <ButtonWithLegend
-          label='Boton con explicación con composición'
-          legend='Clicka el botón para hacer algo' />
+      <div className="App">
+        <h4>Ciclo de montaje: constructor</h4>
+        {this.state.mensajeInicial}
+        <button onClick={this.handleClick}>
+          Cambiar mensaje
+        </button>
       </div>
     );
   }
 }
 
-export default ComponentsWithComposition;
+export default Constructor;
