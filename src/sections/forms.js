@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
 export default class Form extends Component {
-    handleClick(e){
+    handleClick = (e) => {
         e.preventDefault()
-        const name = document.getElementById('name').value
+        const name = this.inputName.value
         const email = document.getElementById('twitter').value
         console.log({name, email})
     }
@@ -18,6 +18,7 @@ export default class Form extends Component {
                             id="name"
                             name="userName"
                             placeholder="Introduce el nombre"
+                            ref={inputElement => this.inputName = inputElement}
                             />
                     </p>
 
