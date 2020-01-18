@@ -21,6 +21,17 @@ class ButtonDanger extends Button {
   }
 }
 
+class ButtonWithLegend extends Button {
+  render (){
+    return (
+      <div>
+        {super.render()}
+        <small>{this.props.legend}</small>
+      </div>
+    )
+  }
+}
+
 class App extends Component {
   render (){
     return (
@@ -29,6 +40,11 @@ class App extends Component {
         <Button label='Click aqui'/>
         <br/>
         <ButtonDanger label='Cuidado'/>
+        <br/>
+        <ButtonWithLegend
+          label='Cuidado'
+          legend='Click el boton para hacer algo'
+        />
       </div>
     );
   }
