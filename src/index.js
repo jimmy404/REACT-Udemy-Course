@@ -1,12 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React, { Component } from 'react';
+import BitCoinPrice from './presentational';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class BitCoinPriceContainer extends Component {
+    state = { bpi: {}}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    componentDidMount () {
+    fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
+        .then(res => res.json())
+        .then(data => {
+        const { bpi } = data
+        this.setState({ bpi })
+        })
+    }
+
+    render () {
+    return (
+        <BitCoinPrice bpi={this.state.bpi} />
+    )
+    }
+}
+
+export default BitCoinPriceContainer
