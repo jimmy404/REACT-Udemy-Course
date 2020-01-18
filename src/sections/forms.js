@@ -13,7 +13,7 @@ export default class Form extends Component {
                 <h4>Formulario</h4>
                 <form>
                     <p>
-                        <label>Nombre:</label>
+                        <label htmlFor='name'>Nombre:</label>
                         <input
                             id="name"
                             name="userName"
