@@ -29,7 +29,7 @@ export default class Form extends Component {
                             placeholder="Introduce tu twitter"
                             />
                     </p>
-                    <button>Enviar</button>
+                    <button onClick={this.handleClick}>Enviar</button>
                 </form>
             </div>
         )
