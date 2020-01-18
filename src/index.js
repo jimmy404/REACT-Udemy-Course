@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BitCoinPrice from './presentational';
+import BitCoinPrice from './sections/presentational';
 
 class BitCoinPriceContainer extends Component {
     state = { bpi: {}}
