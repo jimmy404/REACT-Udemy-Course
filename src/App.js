@@ -1,12 +1,11 @@
 import React, {Component } from 'react';
-import ConditionalSection from './sections/conditional';
 
 
 class App extends Component {
   render(){
+    const numbers = [1,2,3,4,5]
     return(
       <div>
-        <ConditionalSection />
       </div>
     );
   }
