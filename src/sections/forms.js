@@ -7,6 +7,12 @@ export default class Form extends Component {
         const email = document.getElementById('twitter').value
         console.log({name, email})
     }
+
+    handleChange(e){
+        console.log('handleChange')
+        console.log(e.target.checked)
+    }
+
     render(){
         return(
             <div>
@@ -30,6 +36,14 @@ export default class Form extends Component {
                             placeholder="Introduce tu twitter"
                             />
                     </p>
+
+                    <p>
+                        <label>
+                            <input onChange={this.handleChange} type="checkbox" />
+                            Accepted terms
+                        </label>
+                    </p>
+
                     <button>Enviar</button>
                 </form>
             </div>
