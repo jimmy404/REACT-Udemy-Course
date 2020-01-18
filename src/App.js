@@ -1,53 +1,51 @@
 import React, { Component } from 'react';
 
 class Button extends Component {
-  constructor(props){
-    super(props)
-    this.borderColor = '#09f'
-  }
-  render() {
-    return(
-      <button style={{borderColor: this.borderColor, display: 'block'}}>
+  render () {
+    return (
+      <button style={{ borderColor: this.props.borderColor, display: 'block' }}>
         {this.props.label}
       </button>
     )
   }
 }
 
-class ButtonDanger extends Button {
-  constructor (props){
-    super(props)
-    this.borderColor = 'red'
+Button.defaultProps = {
+  borderColor: '#09f'
+}
+
+class ButtonDanger extends Component {
+  render () {
+    return <Button borderColor='red' label={this.props.label} />
   }
 }
 
-class ButtonWithLegend extends Button {
-  render (){
+class ButtonWithLegend extends Component {
+  render () {
     return (
       <div>
-        {super.render()}
+        <Button label={this.props.label} borderColor={this.props.borderColor} />
         <small>{this.props.legend}</small>
       </div>
     )
   }
 }
 
-class App extends Component {
-  render (){
+class ComponentsWithComposition extends Component {
+  render () {
     return (
-      <div className="App">
-        <h4>Composicion vs Herencia</h4>
-        <Button label='Click aqui'/>
-        <br/>
-        <ButtonDanger label='Cuidado'/>
-        <br/>
+      <div>
+        <h4>Composición vs. herencia (ejemplo de composición)</h4>
+        <Button label='Click aqui con composición' />
+        <br />
+        <ButtonDanger label='Cuidado con composición!!' />
+        <br />
         <ButtonWithLegend
-          label='Cuidado'
-          legend='Click el boton para hacer algo'
-        />
+          label='Boton con explicación con composición'
+          legend='Clicka el botón para hacer algo' />
       </div>
     );
   }
 }
 
-export default App;
+export default ComponentsWithComposition;
