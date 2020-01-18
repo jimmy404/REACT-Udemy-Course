@@ -14,12 +14,21 @@ class Button extends Component {
   }
 }
 
+class ButtonDanger extends Button {
+  constructor (props){
+    super(props)
+    this.borderColor = 'red'
+  }
+}
+
 class App extends Component {
   render (){
     return (
       <div className="App">
         <h4>Composicion vs Herencia</h4>
         <Button label='Click aqui'/>
+        <br/>
+        <ButtonDanger label='Cuidado'/>
       </div>
     );
   }
