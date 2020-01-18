@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 
 export default class Form extends Component {
+    handleClick(e){
+        e.preventDefault()
+        const name = document.getElementById('name').value
+        const email = document.getElementById('twitter').value
+        console.log({name, email})
+    }
     render(){
         return(
             <div>
