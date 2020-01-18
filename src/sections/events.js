@@ -1,34 +1,55 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
-export default class Events extends Component {
-constructor () {
-    super()
-    this.state = { mouseX: 0, mouseY: 0 }
-    // this.handleMouseMove = this.handleMouseMove.bind(this)
+function Article (props) {
+    return (
+    <section>
+        <h2>{props.title}</h2>
+        <p><em>Escrito por {props.author}</em></p>
+        <date>{props.date}</date>
+        <article>
+        {props.children}
+        </article>
+    </section>
+    )
 }
 
-handleMouseMove = (e) => {
-    const { clientX, clientY } = e
-    this.setState({ mouseX: clientX, mouseY: clientY })
+Article.propTypes = {
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    children: PropTypes.any
 }
 
-handleClick (e) {
-    console.log(e)
-    console.log(e.nativeEvent)
-    alert('Hi here!')
+const Button = ({ borderColor = 'red', label }) => (
+    <button style={{ borderColor, display: 'block' }}>
+    {label}
+    </button>
+)
+
+Button.propTypes = {
+    borderColor: PropTypes.string,
+    label: PropTypes.string.isRequired
 }
 
+class StatelessWithPropTypes extends Component {
 render () {
     return (
     <div>
-        <h4>Eventos</h4>
-        <button onClick={this.handleClick}>Hi there!</button>
-        <div
-        onMouseMove={this.handleMouseMove}
-        style={{ border: '1px solid #000', marginTop: 10, padding: 10 }}>
-        <p>{this.state.mouseX}, {this.state.mouseY}</p>
-        </div>
+        <h4>Stateless components</h4>
+        <Article
+        author='Miguel'
+        date={new Date().toLocaleDateString()}
+        title='Artículo sobre la prop children'
+        >
+        <p>El contenido que envolvemos dentro del componente Article será enviado al componente como this.props.children.</p>
+        <strong>Y mantiene las etiquetas y componentes que hayáis añadido dentro</strong>
+        </Article>
+        <br />
+        <Button label='Comentar artículo' />
     </div>
     )
 }
 }
+
+export default StatelessWithPropTypes
