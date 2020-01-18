@@ -11,7 +11,7 @@ export default class Form extends Component {
         return(
             <div>
                 <h4>Formulario</h4>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <p>
                         <label htmlFor='name'>Nombre:</label>
                         <input
@@ -30,7 +30,7 @@ export default class Form extends Component {
                             placeholder="Introduce tu twitter"
                             />
                     </p>
-                    <button onClick={this.handleClick}>Enviar</button>
+                    <button>Enviar</button>
                 </form>
             </div>
         )
