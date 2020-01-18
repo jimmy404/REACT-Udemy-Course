@@ -21,13 +21,15 @@ function useConditionalRendering (mostrarA) {
 export default class ConditionalSection extends Component {
     constructor(){
         super()
-        this.state = { mostrarA: true }
+        this.state = { mostrarB: true }
     }
+
+
     render() {
         return (
             <div>
                 <h4>Conditional Rendering</h4>
-                {useConditionalRendering(this.state.mostrarA)}
+                {this.state.mostrarA ? <ComponenteA /> : <ComponenteA />}
             </div>
         )
     }
