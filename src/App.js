@@ -1,4 +1,5 @@
 import React, {Component } from 'react';
+import ConditionalSection from './sections/conditional';
 
 class Contador extends Component {
   constructor(props) {
