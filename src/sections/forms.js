@@ -1,16 +1,25 @@
 import React, { Component } from 'react'
 
 export default class Form extends Component {
-    handleClick = (e) => {
-        e.preventDefault()
-        const name = this.inputName.value
-        const email = document.getElementById('twitter').value
-        console.log({name, email})
+
+    constructor() {
+        super()
+        this.state = {
+            inputName: '',
+            inputTwitter:'@',
+            inputTerms: true
+        }
     }
 
-    handleChange(e){
+    handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(this.state)
+    }
+
+    handleChange =(e) => {
         console.log('handleChange')
         console.log(e.target.checked)
+        this.setState({inputTerms: e.target.checked})
     }
 
     render(){
@@ -23,8 +32,10 @@ export default class Form extends Component {
                         <input
                             id="name"
                             name="userName"
+                            onChange={e => this.setState({inputName: e.target.value })}
                             placeholder="Introduce el nombre"
                             ref={inputElement => this.inputName = inputElement}
+                            value={this.state.inputName}
                             />
                     </p>
 
@@ -33,13 +44,18 @@ export default class Form extends Component {
                         <input
                             id="twitter"
                             name="twitterName"
+                            onChange={e => this.setState({inputTwitter: e.target.value })}
                             placeholder="Introduce tu twitter"
+                            value={this.state.inputTwitter}
                             />
                     </p>
 
                     <p>
                         <label>
-                            <input onChange={this.handleChange} type="checkbox" />
+                            <input
+                                checked={this.state.inputTerms}
+                                onChange={this.handleChange}
+                                type="checkbox" />
                             Accepted terms
                         </label>
                     </p>
