@@ -1,14 +1,23 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import BitCoinPrice from './sections/presentational';
 
-class App extends Component {
+class BitCoinPriceContainer extends Component {
+    state = { bpi: {}}
 
-    render() {
-        return(
-            <div className="App">
-                <h4>Cliclo de montaje: constructor</h4>
-            </div>
-        );
+    componentDidMount () {
+    fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
+        .then(res => res.json())
+        .then(data => {
+        const { bpi } = data
+        this.setState({ bpi })
+        })
+    }
+
+    render () {
+    return (
+        <BitCoinPrice bpi={this.state.bpi} />
+    )
     }
 }
 
-export default App;
+export default BitCoinPriceContainer
